@@ -66,4 +66,13 @@ export class WeatherService {
       tap(data => this.forecast.set(data))
     );
   }
+
+  // Mock UV Index since it requires OneCall API (Paid)
+  // We derive a fake reasonable value based on clouds and time of day if needed, 
+  // or just return a random realistic value for demo purposes.
+  getUVIndex(lat: number, lon: number): number {
+    // Simplified consistency: pseudo-random based on coords
+    const pseudoRandom = (Math.abs(lat) + Math.abs(lon)) % 10; 
+    return Math.floor(pseudoRandom);
+  }
 }

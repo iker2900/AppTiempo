@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { CommonModule, DecimalPipe, TitleCasePipe } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { WeatherData } from 'src/app/core/interfaces/weather.interface';
 import { WeatherIconComponent } from '../../atoms/weather-icon/weather-icon.component';
+import { WeatherService } from 'src/app/core/services/weather.service';
 
 @Component({
   selector: 'app-current-weather',
@@ -15,6 +16,12 @@ import { WeatherIconComponent } from '../../atoms/weather-icon/weather-icon.comp
 export class CurrentWeatherComponent {
 
   @Input() weather: WeatherData | null = null;
+  private weatherService = inject(WeatherService);
+
+  get uvIndex(): number {
+    if (!this.weather) return 0;
+    return this.weatherService.getUVIndex(this.weather.coord.lat, this.weather.coord.lon);
+  }
 
   constructor() { }
 

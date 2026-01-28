@@ -1,6 +1,23 @@
 <div class="forecast-container" *ngIf="forecast">
-  <ion-list>
+  
+  <!-- Hourly Scroll -->
+  <div class="hourly-section">
+    <div class="section-title">
+      <ion-icon name="time-outline"></ion-icon>
+      24-Hour Forecast
+    </div>
+    <div class="hourly-scroll">
+      <div class="hourly-item" *ngFor="let item of hourlyForecast; trackBy: trackByFn">
+        <span class="hour">{{ item.dt * 1000 | date:'HH:mm' }}</span>
+        <app-weather-icon [icon]="item.weather[0].icon" size="small"></app-weather-icon>
+        <span class="temp">{{ item.main.temp | number:'1.0-0' }}°</span>
+      </div>
+    </div>
+  </div>
+
+  <ion-list class="daily-list">
     <ion-list-header>
+      <ion-icon name="calendar-outline"></ion-icon>
       <ion-label>5-Day Forecast</ion-label>
     </ion-list-header>
 

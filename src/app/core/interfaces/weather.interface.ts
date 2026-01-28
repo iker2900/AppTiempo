@@ -19,6 +19,9 @@ export interface WeatherData {
     description: string;
     icon: string;
   }>;
+  clouds: {
+    all: number;
+  };
   wind: {
     speed: number;
     deg: number;

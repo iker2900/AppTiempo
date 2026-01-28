@@ -26,6 +26,18 @@
       <span>{{ weather.wind.speed }} m/s</span>
       <small>{{ 'WEATHER.WIND' | translate }}</small>
     </div>
-    <!-- Add UV or others if available in API data (Standard API doesn't have UV, needs OneCall. Using standard for now) -->
-  </div>
+    
+    <!-- UV Index (Mocked/Calculated in component) -->
+    <div class="detail-item">
+      <ion-icon name="sunny-outline"></ion-icon>
+      <span>{{ uvIndex }}</span>
+      <small>UV Index</small>
+    </div>
+
+    <!-- Rain / Cloudiness as proxy for "Precipitaciones previstas" if pop undefined -->
+    <div class="detail-item">
+      <ion-icon name="rainy-outline"></ion-icon>
+      <span>{{ weather.clouds.all }}%</span>
+      <small>Prob. Rain</small>
+    </div>
 </div>

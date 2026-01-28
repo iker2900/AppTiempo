@@ -12,6 +12,9 @@ export class WeatherDetailPage {
   currentWeather = this.weatherService.currentWeather;
   forecast = this.weatherService.forecast;
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService) { 
+    // Effect or logic to ensure data presence could go here, 
+    // but Signals handle the view update automatically.
+  }
 
 }
