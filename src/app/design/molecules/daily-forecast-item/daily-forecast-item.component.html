@@ -1,3 +1,14 @@
-<p>
-  daily-forecast-item works!
-</p>
+<ion-item lines="none" class="forecast-item" *ngIf="item">
+  <div class="day-name" slot="start">
+    {{ item.dt * 1000 | date:'EEE' }}
+  </div>
+  
+  <div class="icon-container">
+    <app-weather-icon [icon]="item.weather[0].icon" size="small"></app-weather-icon>
+  </div>
+
+  <div class="temps" slot="end">
+    <span class="high">{{ item.main.temp_max | number:'1.0-0' }}°</span>
+    <span class="low">{{ item.main.temp_min | number:'1.0-0' }}°</span>
+  </div>
+</ion-item>

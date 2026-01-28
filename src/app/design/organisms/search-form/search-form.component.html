@@ -1,3 +1,39 @@
-<p>
-  search-form works!
-</p>
+<form (ngSubmit)="onSearch()" class="search-form ion-padding">
+  <ion-item lines="none" class="search-input-item">
+    <ion-icon name="search-outline" slot="start"></ion-icon>
+    <ion-input
+      [formControl]="searchControl"
+      [placeholder]="'HOME.SEARCH_PLACEHOLDER' | translate"
+      type="text"
+      clearInput="true"
+    >
+    </ion-input>
+  </ion-item>
+
+  <div
+    class="error-message"
+    *ngIf="
+      searchControl.invalid && (searchControl.dirty || searchControl.touched)
+    "
+  >
+    <ion-text color="danger">
+      <small>{{ "Campo requerido" }}</small>
+    </ion-text>
+  </div>
+
+  <div class="actions ion-margin-top">
+    <ion-button expand="block" type="submit" [disabled]="searchControl.invalid">
+      {{ "Buscar" | translate }}
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="outline"
+      color="secondary"
+      (click)="onLocationClick()"
+    >
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      {{ "HOME.CURRENT_LOCATION" | translate }}
+    </ion-button>
+  </div>
+</form>

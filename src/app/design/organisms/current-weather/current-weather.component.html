@@ -1,3 +1,31 @@
-<p>
-  current-weather works!
-</p>
+<div class="current-weather-container" *ngIf="weather">
+  <div class="header">
+    <h1 class="city-name">{{ weather.name }}</h1>
+    <p class="description">{{ weather.weather[0].description | titlecase }}</p>
+  </div>
+  
+  <div class="main-temp">
+    <div class="temp-value">{{ weather.main.temp | number:'1.0-0' }}°</div>
+    <!-- <img [src]="iconUrl" alt="weather icon" class="weather-icon-large"> -->
+    <app-weather-icon [icon]="weather.weather[0].icon" size="large"></app-weather-icon>
+  </div>
+
+  <div class="high-low">
+    <span>H: {{ weather.main.temp_max | number:'1.0-0' }}°</span>
+    <span>L: {{ weather.main.temp_min | number:'1.0-0' }}°</span>
+  </div>
+
+  <div class="details-grid">
+    <div class="detail-item">
+      <ion-icon name="water-outline"></ion-icon>
+      <span>{{ weather.main.humidity }}%</span>
+      <small>{{ 'WEATHER.HUMIDITY' | translate }}</small>
+    </div>
+    <div class="detail-item">
+      <ion-icon name="speedometer-outline"></ion-icon>
+      <span>{{ weather.wind.speed }} m/s</span>
+      <small>{{ 'WEATHER.WIND' | translate }}</small>
+    </div>
+    <!-- Add UV or others if available in API data (Standard API doesn't have UV, needs OneCall. Using standard for now) -->
+  </div>
+</div>

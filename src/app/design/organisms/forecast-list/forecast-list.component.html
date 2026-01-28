@@ -1,3 +1,12 @@
-<p>
-  forecast-list works!
-</p>
+<div class="forecast-container" *ngIf="forecast">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>5-Day Forecast</ion-label>
+    </ion-list-header>
+
+    <app-daily-forecast-item 
+      *ngFor="let item of dailyForecasts; trackBy: trackByFn"
+      [item]="item">
+    </app-daily-forecast-item>
+  </ion-list>
+</div>
