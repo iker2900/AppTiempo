@@ -10,15 +10,7 @@ export class LocationService {
 
   async getCurrentPosition(): Promise<Position | undefined> {
     try {
-      const permission = await Geolocation.checkPermissions();
-      
-      if (permission.location !== 'granted' && permission.location !== 'granted-limited') {
-        const request = await Geolocation.requestPermissions();
-        if (request.location !== 'granted') {
-          return undefined;
-        }
-      }
-      
+      // Direct call handles permission request automatically on most platforms
       const coordinates = await Geolocation.getCurrentPosition();
       return coordinates;
     } catch (error) {
