@@ -1,20 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      {{ 'HOME.TITLE' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <app-search-form 
+      (search)="onSearch($event)" 
+      (requestLocation)="onUseLocation()">
+    </app-search-form>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="weather-content ion-padding">
+      <app-current-weather 
+        [weather]="currentWeather()">
+      </app-current-weather>
+
+      <app-forecast-list 
+        [forecast]="forecast()"
+        class="ion-margin-top">
+      </app-forecast-list>
+    </div>
   </div>
 </ion-content>
