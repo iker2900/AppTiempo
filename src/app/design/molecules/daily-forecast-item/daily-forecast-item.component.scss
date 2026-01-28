@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.forecast-row {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  align-items: center;
+  padding: 12px 0;
+  
+  .day-name {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  
+  .weather-icon {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  .temps {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    
+    .high {
+      font-weight: 600;
+    }
+    
+    .low {
+      opacity: 0.6;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+ion-item {
+  --background: rgba(255, 255, 255, 0.15);
+  --border-radius: 10px;
+  --padding-start: 15px;
+  --inner-padding-end: 15px;
+  --highlight-color-focused: white;
+  margin-bottom: 20px;
+}
+
+ion-input {
+  --color: white;
+  --placeholder-color: rgba(255, 255, 255, 0.6);
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+}
+
+ion-button {
+  --background: rgba(255, 255, 255, 0.2);
+  --background-hover: rgba(255, 255, 255, 0.3);
+  --border-radius: 10px;
+  --color: white;
+  font-weight: 600;
+  text-transform: none;
+  height: 50px;
+  font-size: 1.1rem;
+}
