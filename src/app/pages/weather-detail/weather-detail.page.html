@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'HOME.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="weather-content ion-padding">
+    <ng-container *ngIf="currentWeather()">
+      <app-current-weather 
+        [weather]="currentWeather()">
+      </app-current-weather>
+
+      <app-forecast-list 
+        [forecast]="forecast()"
+        class="ion-margin-top">
+      </app-forecast-list>
+    </ng-container>
+
+    <div *ngIf="!currentWeather()" class="ion-text-center ion-padding">
+      <p>No weather data found.</p>
+    </div>
+  </div>
+</ion-content>
