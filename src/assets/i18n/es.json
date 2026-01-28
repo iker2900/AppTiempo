@@ -1,0 +1,13 @@
+{
+  "HOME": {
+    "TITLE": "El Tiempo",
+    "SEARCH_PLACEHOLDER": "Buscar ciudad...",
+    "CURRENT_LOCATION": "Usar mi ubicación"
+  },
+  "WEATHER": {
+    "HUMIDITY": "Humedad",
+    "WIND": "Viento",
+    "UV_INDEX": "Índice UV",
+    "PRECIPITATION": "Precipitaciones"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "HOME": {
+    "TITLE": "Weather",
+    "SEARCH_PLACEHOLDER": "Search city...",
+    "CURRENT_LOCATION": "Use my location"
+  },
+  "WEATHER": {
+    "HUMIDITY": "Humidity",
+    "WIND": "Wind",
+    "UV_INDEX": "UV Index",
+    "PRECIPITATION": "Precipitation"
+  }
+}
